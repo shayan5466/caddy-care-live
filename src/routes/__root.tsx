@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { MotionConfig } from "motion/react";
 import { CaddyProvider } from "../lib/caddy-context";
+import { BootLoader } from "../components/caddy/BootLoader";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -127,6 +128,7 @@ function RootComponent() {
       <CaddyProvider>
         {/* reducedMotion="user" strips transform/loop motion for users who ask for it */}
         <MotionConfig reducedMotion="user">
+          <BootLoader />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </MotionConfig>

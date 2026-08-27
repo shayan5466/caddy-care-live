@@ -172,21 +172,69 @@ export function DoctorCarousel() {
   return (
     <section className="space-y-5">
       <motion.header
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ type: "spring", stiffness: 160, damping: 18 }}
-        className="flex items-end justify-between gap-4"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }}
+        className="flex flex-wrap items-end justify-between gap-4"
       >
-        <div>
-          <h2 className="text-2xl font-extrabold sm:text-3xl">Featured doctors</h2>
-          <p className="text-sm text-muted-foreground">
+        <div className="space-y-2">
+          <motion.span
+            variants={{
+              hidden: { opacity: 0, y: 12 },
+              show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 220, damping: 20 } },
+            }}
+            className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-[0.65rem] font-bold tracking-[0.22em] uppercase text-primary"
+          >
+            Handpicked care
+          </motion.span>
+
+          <h2 className="flex flex-wrap items-baseline gap-x-3 text-[clamp(2rem,6vw,3.4rem)] leading-[0.95] font-black tracking-[-0.04em]">
+            {["Featured", "doctors"].map((word, i) => (
+              <motion.span
+                key={word}
+                variants={{
+                  hidden: { opacity: 0, y: 28, rotateX: -55 },
+                  show: {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    transition: { type: "spring", stiffness: 180, damping: 16 },
+                  },
+                }}
+                className={
+                  i === 1
+                    ? "bg-gradient-to-r from-primary via-primary to-foreground bg-clip-text text-transparent italic"
+                    : ""
+                }
+                style={{ transformOrigin: "bottom" }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h2>
+
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 10 },
+              show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 200, damping: 22 } },
+            }}
+            className="max-w-md text-sm text-muted-foreground"
+          >
             Drag sideways — Caddy shuffles the deck for you.
-          </p>
+          </motion.p>
         </div>
-        <span className="hidden rounded-full bg-secondary px-3 py-1 text-xs font-bold text-muted-foreground sm:inline">
+
+        <motion.span
+          variants={{
+            hidden: { opacity: 0, scale: 0.85 },
+            show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } },
+          }}
+          className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-muted-foreground"
+        >
+          <span className="size-2 animate-pulse rounded-full bg-primary" />
           {DOCTORS.length} available now
-        </span>
+        </motion.span>
       </motion.header>
 
       <div
