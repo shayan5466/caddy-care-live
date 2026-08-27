@@ -127,6 +127,7 @@ function RootComponent() {
       <CaddyProvider>
         {/* reducedMotion="user" strips transform/loop motion for users who ask for it */}
         <MotionConfig reducedMotion="user">
+          <BootLoader />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </MotionConfig>
