@@ -43,19 +43,19 @@ export function SiteFooter() {
     <footer className="relative mt-24 overflow-hidden">
       {/* marquee ribbon */}
       <div
-        className="relative overflow-hidden py-3"
+        className="relative overflow-hidden py-2.5"
         style={{ background: "var(--gradient-care)" }}
         aria-hidden
       >
         <motion.div
-          className="flex w-max gap-8 whitespace-nowrap"
+          className="flex w-max gap-6 whitespace-nowrap"
           animate={calm ? {} : { x: ["0%", "-50%"] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
         >
           {[...MARQUEE, ...MARQUEE, ...MARQUEE, ...MARQUEE].map((word, i) => (
             <span
               key={`${word}-${i}`}
-              className="font-display text-sm font-extrabold uppercase tracking-[0.22em] text-primary-foreground/90"
+              className="font-display text-xs font-extrabold uppercase tracking-[0.22em] text-primary-foreground/90"
             >
               {word} <span className="opacity-60">✦</span>
             </span>
@@ -64,35 +64,35 @@ export function SiteFooter() {
       </div>
 
       <div className="relative bg-secondary/60">
-        <div aria-hidden className="clinic-grain pointer-events-none absolute inset-0 opacity-60" />
+        <div aria-hidden className="clinic-grain pointer-events-none absolute inset-0 opacity-50" />
 
-        <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-14 sm:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
+        <div className="relative mx-auto max-w-6xl px-5 pb-9 pt-12 sm:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1.3fr_2fr]">
             <motion.div
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ type: "spring", stiffness: 150, damping: 18 }}
             >
               <div className="flex items-center gap-2">
                 <motion.span
-                  className="grid size-11 place-items-center rounded-2xl text-primary-foreground"
+                  className="grid size-10 place-items-center rounded-2xl text-primary-foreground"
                   style={{ background: "var(--gradient-care)" }}
-                  animate={calm ? {} : { rotate: [-6, 6, -6] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  animate={calm ? {} : { rotate: [-5, 5, -5] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Stethoscope aria-hidden className="size-5" />
+                  <Stethoscope aria-hidden className="size-4.5" />
                 </motion.span>
-                <span className="font-display text-2xl font-extrabold leading-none">
+                <span className="font-display text-xl font-extrabold leading-none">
                   Caddy<span className="foil-text foil-animate"> Care</span>
                 </span>
               </div>
-              <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-4 max-w-sm text-[0.8rem] leading-relaxed text-muted-foreground">
                 The daily operating system for small clinics — bookings, live queue, patient records
                 and follow-ups, wrapped in something patients actually enjoy using.
               </p>
 
-              <div className="mt-6 flex gap-2">
+              <div className="mt-5 flex gap-2">
                 {[Twitter, Instagram, Linkedin].map((Icon, i) => (
                   <motion.a
                     key={i}
@@ -101,9 +101,9 @@ export function SiteFooter() {
                     whileHover={{ y: -4, rotate: -6 }}
                     whileTap={{ scale: 0.92 }}
                     transition={{ type: "spring", stiffness: 420, damping: 14 }}
-                    className="glass-card grid size-10 place-items-center rounded-2xl"
+                    className="glass-card grid size-9 place-items-center rounded-xl"
                   >
-                    <Icon aria-hidden className="size-4" />
+                    <Icon aria-hidden className="size-3.5" />
                   </motion.a>
                 ))}
               </div>
@@ -113,7 +113,7 @@ export function SiteFooter() {
               {COLUMNS.map((col, ci) => (
                 <motion.div
                   key={col.title}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{
@@ -123,10 +123,10 @@ export function SiteFooter() {
                     delay: 0.06 * ci,
                   }}
                 >
-                  <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
+                  <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-primary">
                     {col.title}
                   </p>
-                  <ul className="mt-4 space-y-2.5 text-sm font-semibold">
+                  <ul className="mt-3.5 space-y-2 text-[0.8rem] font-semibold">
                     {col.links.map((l) => (
                       <li key={l.label}>
                         {l.to ? (
@@ -149,19 +149,19 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* giant caddy wordmark */}
+          {/* medium caddy wordmark */}
           <motion.p
             aria-hidden
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
-            className="hero-title mt-14 select-none text-center text-[19vw] leading-none sm:text-[15vw]"
+            className="hero-title mt-12 select-none text-center text-[10vw] leading-none sm:text-[7vw]"
           >
             Caddy Care
           </motion.p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-xs font-semibold text-muted-foreground">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 text-[0.7rem] font-semibold text-muted-foreground">
             <p>© {new Date().getFullYear()} Caddy Care. Built for clinics that care.</p>
             <p className="inline-flex items-center gap-1.5">
               Made with
@@ -170,7 +170,7 @@ export function SiteFooter() {
                 transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
                 className="text-accent"
               >
-                <Heart aria-hidden className="size-3.5 fill-current" />
+                <Heart aria-hidden className="size-3" />
               </motion.span>
               for waiting rooms everywhere
             </p>
